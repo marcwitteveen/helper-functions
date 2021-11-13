@@ -1,5 +1,5 @@
 {
-    "name": "marcwitteveen/helperfunctions",
+    "name": "marcwitteveen/helper-functions",
     "description": "This class provides some simple PHP helper function for implementing Zendesk within your website.",
     "keywords": ["helper functions", "helper"],
     "homepage": "https://github.com/marcwitteveen/helper-functions/",
