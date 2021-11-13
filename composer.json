@@ -1,7 +1,7 @@
 {
     "name": "marcwitteveen/helperfunctions",
     "description": "This class provides some simple PHP helper function for implementing Zendesk within your website.",
-    "keywords": ["zendesk", "zendesk chat"],
+    "keywords": ["helper functions", "helper"],
     "homepage": "https://github.com/marcwitteveen/helper-functions/",
     "license": "MIT",
     "authors": [
