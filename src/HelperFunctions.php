@@ -113,4 +113,39 @@ class HelperFunctions {
 		  		return $return_value;
 		}
 	}
+
+	public static function GetStartAndEndTime($start_date, $start_time, $webinar_length, $webinar_units = "seconds")
+	{
+		
+		$standardTimeZoneEst = "America/New_York";
+		$standardTimeZonePst = "America/Los_Angeles";
+
+		$completeDateTime = (string) sprintf("%s %s", $start_date, $start_time);
+
+		$tzEst  = new CarbonTimeZone($standardTimeZoneEst);
+		$tzPst  = new CarbonTimeZone($standardTimeZonePst);
+		$dt     = new Carbon($completeDateTime, $tzEst);
+
+		$return = [];
+		$return["formated_webinar_date"] = $dt->format('l F j, Y');
+		$return["est_time"] = $dt->format('ga');
+		$return["est_abbreviated_name"] = strtoupper($tzEst->getAbbreviatedName());
+		$return["webinar_countdown_clock"] = $dt->format('Y-m-d H:i:s');
+		$return["time_converter_datetime"] = $dt->format("Ymd") . "T" . $dt->format('H');
+		$return["webinar_month"] = $dt->englishMonth;
+		$return["webinar_day"] = $dt->englishDayOfWeek;
+		$return["webinar_day_number"] = $dt->day;
+		$eventWebinarStartDateTime = $dt->format('Y-m-d H:i');
+		// Calculate the webinar end time
+		$dt->add($webinar_length, $webinar_units);
+		$eventWebinarEndDateTime = $dt->format('Y-m-d H:i');
+		$return["webinar_start"] = DateTime::createFromFormat('Y-m-d H:i', $eventWebinarStartDateTime, new DateTimeZone($standardTimeZoneEst));
+		$return["webinar_end"] = DateTime::createFromFormat('Y-m-d H:i', $eventWebinarEndDateTime, new DateTimeZone($standardTimeZoneEst));
+		// PST calculations
+		$dt->sub($webinar_length, $webinar_units);
+		$dt->setTimezone($tzPst);
+		$return["pst_time"] = $dt->format('ga');
+		$return["pst_abbreviated_name"] = strtoupper($tzPst->getAbbreviatedName());
+		return $return;
+	}
 }
