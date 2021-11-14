@@ -17,7 +17,7 @@ namespace MarcWitteveen\HelperFunctions;
 class HelperFunctions {
 
 
-	function static DayOfTheWeek() {
+	public static function DayOfTheWeek() {
 		$days = array(
 			'Sunday',
 			'Monday',
@@ -31,13 +31,13 @@ class HelperFunctions {
 		return $days[$dayNumber];
 	}
 
-	function static Day($timezone = 'America/New_York') {
+	public static function Day($timezone = 'America/New_York') {
 		$objCurrentTime = new DateTime();
 		$objCurrentTime->setTimezone(new DateTimeZone($timezone));
 		return $objCurrentTime->format("l");
 	}
 
-	function static GetParameter($request, $parameters) 
+	public static function GetParameter($request, $parameters) 
 	{
 		foreach($parameters as $param) {
 			if (array_key_exists($param,$request)) {
@@ -47,7 +47,7 @@ class HelperFunctions {
 		return "";
 	}
 
-	function static GetPageUrl($return = null) 
+	public static function GetPageUrl($return = null) 
 	{
 		$protocol = 'http://';
 		if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
