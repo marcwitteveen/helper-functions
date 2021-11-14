@@ -92,4 +92,14 @@ class HelperFunctions {
 		$show_whitelist = in_array($domain, $whitelist_domain_names);
 		return $show_whitelist;
 	}
+
+	public static function FixTime($time, $add_seconds = true)
+	{
+		$tmp = @str_split($time, strlen($time)-2);
+  		$return_value = (string) $time[0] . ":" . $time[1];
+  		if ($add_seconds) {
+  			$return_value .= ":00";	
+  		}
+  		return $return_value;
+	}
 }
