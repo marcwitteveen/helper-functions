@@ -41,7 +41,7 @@ class HelperFunctions {
 	{
 		foreach($parameters as $param) {
 			if (array_key_exists($param,$request)) {
-				return 	$request[$param];
+				return 	strip_tags($request[$param]);
 			}	
 		}
 		return "";
