@@ -80,12 +80,12 @@ class HelperFunctions {
 		}
 	}
 
-	public static function getFolder() 
+	public static function GetFolder() 
 	{
 		return strtolower(basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
 	}
 
-	public static function showWhiteList($email_address, $whitelist_domain_names)
+	public static function ShowWhiteList($email_address, $whitelist_domain_names)
 	{
 		$host = strtolower(substr($email_address, strpos($email_address, '@') + 1));
 		$domain = explode('.', $host)[0];
