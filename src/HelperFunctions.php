@@ -95,11 +95,22 @@ class HelperFunctions {
 
 	public static function FixTime($time, $add_seconds = true)
 	{
-		$tmp = @str_split($time, strlen($time)-2);
-  		$return_value = (string) $time[0] . ":" . $time[1];
-  		if ($add_seconds) {
-  			$return_value .= ":00";	
-  		}
-  		return $return_value;
+
+		switch(substr_count($time, ':')) {
+			case 2:
+				return $time;
+			case 1:
+				if ($add_seconds === true) {
+	  				$time .= ":00";	
+	  			}
+	  			return $time;
+	  		case 0:
+	  			$tmp = @str_split($time, strlen($time)-2);
+		  		$return_value = (string) $tmp[0] . ":" . $tmp[1];
+		  		if ($add_seconds) {
+		  			$return_value .= ":00";	
+		  		}
+		  		return $return_value;
+		}
 	}
 }
