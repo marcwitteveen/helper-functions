@@ -148,4 +148,11 @@ class HelperFunctions {
 		$return["pst_abbreviated_name"] = strtoupper($tzPst->getAbbreviatedName());
 		return $return;
 	}
+
+	public static function YourTimezoneUrl($title, $date_time)
+	{
+		$title = url_encode(strip_tags($title));
+		$return = sprintf("https://www.timeanddate.com/worldclock/fixedtime.html?msg=%s&iso=%s&p1=250", $title, $date_time);
+		return $return; 
+	}
 }
