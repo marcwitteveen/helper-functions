@@ -11,6 +11,11 @@
 
 namespace MarcWitteveen\HelperFunctions;
 
+use DateTime;
+use DateTimeZone;
+use Carbon\Carbon;
+use Carbon\CarbonTimeZone;
+
 /**
  * Helper functions
  */
