@@ -71,7 +71,7 @@ class HelperFunctions {
 		}
 	}
 
-	function static WebpSupport()
+	public static function WebpSupport()
 	{
 		if (strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
 	    	return true;
@@ -80,7 +80,7 @@ class HelperFunctions {
 		}
 	}
 
-	function static getFolder() 
+	public static function getFolder() 
 	{
 		return strtolower(basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
 	}
