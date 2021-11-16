@@ -175,13 +175,13 @@ class HelperFunctions {
 
 	public static function TwitterShareLink($url, $text = "")
 	{
-		$return = (string) sprintf("https://twitter.com/intent/tweet?url=%s&text=%s", $url);
+		$return = (string) sprintf("https://twitter.com/intent/tweet?url=%s&text=%s", $url, $text);
 		return $return;
 	}
 
-	public static function EmailShareLink($subject = "", $message = "")
+	public static function EmailShareLink($subject = "", $body = "")
 	{
-		$return = (string) sprintf("mailto:subject=%s&body=%s", $subject, $message);
+		$return = (string) sprintf("mailto:subject=%s&body=%s", $subject, $body);
 		return $return;
 	}
 }
