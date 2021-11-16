@@ -160,4 +160,28 @@ class HelperFunctions {
 		$return = sprintf("https://www.timeanddate.com/worldclock/fixedtime.html?msg=%s&iso=%s&p1=250", $title, $date_time);
 		return $return; 
 	}
+
+	public static function FacebookShareLink($url)
+	{
+		$return = (string) sprintf("https://www.facebook.com/sharer.php?u=%s", $url);
+		return $return;
+	}
+
+	public static function LinkedInShareLink($url)
+	{
+		$return = (string) sprintf("https://www.linkedin.com/sharing/share-offsite/?url=%s", $url);
+		return $return;
+	}
+
+	public static function TwitterShareLink($url, $text = "")
+	{
+		$return = (string) sprintf("https://twitter.com/intent/tweet?url=%s&text=%s", $url);
+		return $return;
+	}
+
+	public static function EmailShareLink($subject = "", $message = "")
+	{
+		$return = (string) sprintf("mailto:subject=%s&body=%s", $subject, $message);
+		return $return;
+	}
 }
