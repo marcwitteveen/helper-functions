@@ -76,13 +76,22 @@ class HelperFunctions {
 		}
 	}
 
+	/**
+	 * Test for WebP support
+	 * @return boolean True if there is support else false
+	 */
 	public static function WebpSupport()
 	{
-		if (strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
-	    	return true;
+		// Check if HTTP_ACCEPT is send
+		if (isset($_SERVER['HTTP_ACCEPT'])) {
+			if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+	    		return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
-		}
+		}		
 	}
 
 	public static function GetFolder() 
